@@ -1,97 +1,187 @@
-Legal Assistance Project
+# 🤖 GenAI Legal Assistant (RAG-Based Chatbot)
 
-This project is a Legal Assistance bot application with a Python backend and a JavaScript-based frontend.
+An advanced **Generative AI-based Legal Assistant System** that provides intelligent, context-aware legal responses using Retrieval-Augmented Generation (RAG) and multimodal input processing.
 
-Getting Started
+---
 
-Follow these instructions to get a local copy of the project up and running on your machine.
+## 🚀 Overview
 
-Prerequisites
+This project is designed to simplify legal information access by combining **Large Language Models (LLMs)** with **vector-based retrieval systems**.
 
-Before you begin, ensure you have the following installed:
+Unlike traditional chatbots, this system:
 
-    Python 3.8+ and pip
-    
-    Node.js and npm
+* Understands documents
+* Extracts text from images and audio
+* Generates responses based on actual legal context
 
-Install this software for image 
+---
 
-Installation and Setup
+## 🧠 Key Features
 
-1. Install Tesseract OCR
+* 💬 AI-powered legal query answering
+* 📄 Document analysis (PDF, DOCX, TXT)
+* 🖼️ OCR-based image text extraction
+* 🎤 Voice input → speech-to-text processing
+* 🔍 Context-aware responses using RAG
+* 🧠 Semantic search using FAISS vector store
+* 🔐 User authentication & chat history
+* 🌐 Interactive frontend interface
 
-Download and install Tesseract from the official repository: https://github.com/UB-Mannheim/tesseract/wiki .
+---
 
-Important: After installation, you may need to add the Tesseract installation path to your system's environment variables or specify it directly in the backend code. Open backend/app.py and update the following line with your Tesseract path if necessary:
+## ⚙️ System Architecture
 
-    # Update this path according to your Tesseract installation
-    pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+The system follows a **RAG (Retrieval-Augmented Generation) pipeline**:
 
+1. User input (text / document / image / audio)
+2. Convert input to text (OCR / speech-to-text)
+3. Generate embeddings
+4. Store & retrieve context using FAISS
+5. Pass context + query to LLM
+6. Generate accurate response
 
-2. Clone the Repository
+---
 
-First, clone the repository to your local machine.
+## 🧰 Tech Stack
 
-    git clone https://github.com/kiransrisai/Legal_chatbot.git
-    
-    cd Legal_chatbot
+### GenAI Components
 
-3. Set Up the Backend
+* LLMs (Groq, Google Generative AI)
+* LangChain
+* FAISS (Vector Store)
+* HuggingFace Embeddings
 
-The backend requires Python dependencies and API keys.
+### Backend
 
-Navigate to the backend directory and install the required packages:
+* Python
+* FastAPI
+* SQLite
 
-    cd backend
-    
-    pip install -r requirements.txt
+### Frontend
 
-Create an environment file:
+* React.js
+* JavaScript
 
-Create a new file named .env inside the backend folder.
+### Tools
 
-Add your API keys to the .env file:
-Open the .env file and add the following lines, replacing the placeholders with your actual keys:
-    
-    GROQ_API_KEY="your_groq_api_key_here"
-    GOOGLE_API_KEY="your_google_api_key_here"
+* Tesseract OCR
+* SpeechRecognition
 
-4. Set Up the Frontend
+---
 
-The frontend requires Node.js modules.
+## 📋 Prerequisites
 
-  Navigate to the frontend directory:
-  
-  # If you are in the backend folder, go back one level first
-  
-      cd ../frontend
+* Python 3.8+
+* pip
+* Node.js
+* npm
 
-  Install the node modules:
-  
-    npm install
+---
 
-Running the Application
+## ⚙️ Setup Instructions
 
-1. Start the Backend Server
+### 1. Clone Repository
 
-  Navigate to the backend directory:
-  
-      cd path/to/your/project/backend
-  
-  Run the application:
-  
-      python app.py
-  
-  The backend server will now be running.
+```bash
+git clone https://github.com/mounikapindi357/Legal_chatbot
+cd Legal_chatbot
+```
 
-2. Start the Frontend Application
+---
 
-  In a new terminal, navigate to the frontend directory:
-  
-      cd path/to/your/project/frontend
-  
-  Run the start command (e.g., npm start):
-      
-      npm start
+### 2. Backend Setup
 
-Your application should now be accessible in your browser.
+```bash
+cd backend
+pip install -r requirements.txt
+```
+
+Create `.env` file:
+
+```env
+GROQ_API_KEY=your_key_here
+GOOGLE_API_KEY=your_key_here
+```
+
+---
+
+### 3. Install Tesseract OCR
+
+Download:
+https://github.com/UB-Mannheim/tesseract/wiki
+
+Update path in backend if needed.
+
+---
+
+### 4. Frontend Setup
+
+```bash
+cd ../frontend
+npm install
+```
+
+---
+
+## ▶️ Run the Application
+
+### Backend
+
+```bash
+cd backend
+uvicorn app:app --reload
+```
+
+---
+
+### Frontend
+
+```bash
+cd frontend
+npm start
+```
+
+---
+
+## 🧠 How It Works
+
+* Converts all input into structured text
+* Uses embeddings for semantic understanding
+* Retrieves relevant legal data using FAISS
+* Generates responses using LLMs
+* Maintains conversation context for better answers
+
+---
+
+## 📁 Project Structure
+
+```
+legal-chatbot/
+│
+├── backend/
+├── frontend/
+└── README.md
+```
+
+---
+
+## ⚠️ Notes
+
+- `.env` file is excluded to protect sensitive API keys  
+- Large folders (e.g., node_modules, venv, vector stores) are ignored via `.gitignore`  
+- This project is developed for educational and research purposes in the GenAI domain  
+
+---
+
+## 🔮 Future Enhancements
+
+* Fine-tuned legal LLM
+* Real-time legal API integration
+* Multilingual improvements
+* Cloud deployment
+
+---
+
+## 📌 Domain
+
+**Generative AI (GenAI) – Legal Tech Application using RAG Architecture**
